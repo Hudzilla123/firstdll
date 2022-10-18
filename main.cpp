@@ -52,6 +52,10 @@ int main()
     while (!procId) // while the procId is not found
     {
         procId = GetProcId(procName); // get process ID of our process name
+
+        std::string displayProcessId = "Process Injecting...";
+        LPCWSTR display = reinterpret_cast<LPCWSTR>(&displayProcessId);
+        MessageBox(NULL, reinterpret_cast<LPCWSTR>(&procId), display, MB_OK); // Display Process ID for example
         Sleep(30); // sleep for 30 milliseconds
     }
 
